@@ -1,7 +1,9 @@
-package tech.iwish.ONhome;
+package tech.iwish.ONhome.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import tech.iwish.ONhome.R;
 
 public class MainActivity extends AppCompatActivity {
 
