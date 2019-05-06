@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import tech.iwish.ONhome.HomeActivity;
 import tech.iwish.ONhome.R;
 
 public class SplashScreen extends AppCompatActivity {
@@ -21,7 +22,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
 
-                    Intent intent = new Intent(SplashScreen.this,MainActivity.class);
+                    Intent intent = new Intent(SplashScreen.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
             }
