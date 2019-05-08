@@ -26,6 +26,8 @@
         <activity
             android:name=".activity.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".ItemDescription"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
-
 </manifest>
