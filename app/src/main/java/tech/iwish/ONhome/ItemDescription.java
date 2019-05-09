@@ -30,7 +30,6 @@ TextView addtocart;
 
 
         if (getIntent() != null) {
-
             getIntent().getStringExtra("item_id");
             getIntent().getStringExtra("price");
             getIntent().getStringExtra("save_price");
