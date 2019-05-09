@@ -47,7 +47,12 @@ TextView addtocart;
             @Override
             public void onClick(View v) {
 
+                HomeActivity.Cart_Count.add(1);
 
+                HomeActivity.Cartview.setText(String.valueOf(HomeActivity.Cart_Count.size()));
+
+
+                Log.e("Cart_Size", String.valueOf(HomeActivity.Cart_Count.size()));
                 Toast.makeText(ItemDescription.this,"Item added to cart.",Toast.LENGTH_SHORT).show();
 
             }

@@ -16,12 +16,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
+
+import java.util.ArrayList;
 
 import tech.iwish.ONhome.fragments.HomeFragment;
 import tech.iwish.fonticons.FontIcon;
@@ -32,13 +35,15 @@ public class HomeActivity extends AppCompatActivity
     int[] sampleImages = {R.drawable.slide4, R.drawable.slide4, R.drawable.slide4, R.drawable.slide4, R.drawable.slide4};
     CarouselView carouselView;
 
+    public static ArrayList<Integer> Cart_Count = new ArrayList<>();
 
+    static TextView Cartview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
+        Cartview = (TextView) findViewById(R.id.cart_count_textview);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
        /* FloatingActionButton fab = findViewById(R.id.fab);
@@ -132,4 +137,5 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }
