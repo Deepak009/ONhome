@@ -20,6 +20,8 @@ import java.util.List;
 import tech.iwish.ONhome.ItemDescription;
 import tech.iwish.ONhome.R;
 
+import static tech.iwish.ONhome.helper.Constants.BaseUrl;
+
 public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView> {
 
     private ArrayList<String> item_id;
@@ -27,9 +29,11 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
     private ArrayList<String> save_price;
     private ArrayList<String> description;
     private ArrayList<String> off_price;
+    private ArrayList<String> img_urls;
     Activity activity;
 
     public class MyView extends RecyclerView.ViewHolder {
+        public TextView item_name;
         public TextView item_id;
         public TextView price;
         public TextView save_price;
@@ -45,6 +49,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
             description = (TextView) view.findViewById(R.id.textView6);
             Off_price = (TextView) view.findViewById(R.id.textView4);
             item_id = (TextView) view.findViewById(R.id.item_id);
+            item_name = (TextView) view.findViewById(R.id.textView14);
             item_img_view = (ImageView) view.findViewById(R.id.imageView3);
         }
     }
@@ -54,13 +59,14 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
                            ArrayList<String> price,
                            ArrayList<String> save_price,
                            ArrayList<String> description,
-                           ArrayList<String> off_price) {
+                           ArrayList<String> off_price, ArrayList<String> item_img_url) {
         this.activity = activity;
         this.item_id = item_id;
         this.price = price;
         this.save_price = save_price;
         this.description = description;
         this.off_price = off_price;
+        this.img_urls = item_img_url;
 
 
     }
@@ -81,10 +87,12 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
         holder.price.setText(price.get(position));
         holder.save_price.setText(save_price.get(position));
         holder.description.setText(description.get(position));
-        holder.Off_price.setText(off_price.get(position));
+        holder.Off_price.setText(off_price.get(position)+" % OFF");
         holder.description.setText(description.get(position));
+        holder.item_name.setText("Hello");
+        Log.e("URLSS",BaseUrl+img_urls.get(position));
         Picasso.with(this.activity)
-                .load("https://image.shutterstock.com/image-photo/green-shopping-bag-grocery-products-260nw-144819322.jpg")
+                .load(BaseUrl+img_urls.get(position))
                 .into(holder.item_img_view);
 
         holder.item_img_view.setOnClickListener(new View.OnClickListener() {
@@ -94,11 +102,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
                 Intent intent = new Intent(activity,ItemDescription.class);
 
                 intent.putExtra("item_id",item_id.get(position));
-                intent.putExtra("price",price.get(position));
-                intent.putExtra("save_price",save_price.get(position));
-                intent.putExtra("description",description.get(position));
-                intent.putExtra("off_price",off_price.get(position));
-
+                
                 holder.item_img_view.getContext().startActivity(intent);
                 //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();
 

@@ -2,6 +2,7 @@ package tech.iwish.ONhome.fragments;
 
 
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -23,10 +31,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
+import tech.iwish.ONhome.Connection.ConnectionServer;
 import tech.iwish.ONhome.HomeActivity;
 import tech.iwish.ONhome.R;
 import tech.iwish.ONhome.adaptors.BestSellAdaptor;
+
+import static tech.iwish.ONhome.helper.Constants.Check;
+import static tech.iwish.ONhome.helper.Constants.getproductlist;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -38,12 +52,13 @@ public class HomeFragment extends Fragment {
     LinearLayoutManager HorizontalLayout ;
 
     //Array List for single Item Detial Start
+    ArrayList<String> item_name;
     ArrayList<String> item_id;
     ArrayList<String> price;
     ArrayList<String> save_price;
     ArrayList<String> description;
     ArrayList<String> Off_price;
-    ArrayList<String> item_img;
+    ArrayList<String> item_img_url;
 
     //Array List for single Item Detial End
 
@@ -80,28 +95,73 @@ public class HomeFragment extends Fragment {
 
         BestSelling_Recycler = (RecyclerView)rootview.findViewById(R.id.bestsellingitem);
         BestSelling_Recycler.setLayoutManager(HorizontalLayout);
-        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price));
+        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url));
 
 
         return rootview;
     }
 
     private void Getitemdetail() {
+        item_name = new ArrayList<>();
         item_id = new ArrayList<>();
         price = new ArrayList<>();
         save_price = new ArrayList<>();
         description = new ArrayList<>();
         Off_price = new ArrayList<>();
+        item_img_url = new ArrayList<>();
 
-        for (int i=0;i<=10;i++){
-            item_id.add("ID "+i);
-            price.add("Rs.20"+i);
-            save_price.add("Rs.40"+i);
-            description.add("Item is selling in lower price");
-            Off_price.add("10% OFF");
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, getproductlist,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
 
+                        try {
+                            JSONArray products = new JSONArray(response);
+                            Log.e("Lenth", String.valueOf(products.length()));
+                            for(int i=0; i<products.length(); i++){
+
+                                JSONObject productObject = products.getJSONObject(i);
+
+                                double  dis,discount_amount,markedprice,s;
+                                markedprice= Double.parseDouble(productObject.getString("price"));
+                                dis=Double.parseDouble(productObject.getString("discount"));  // 25 mean 25%
+                                s=100-dis;
+                                discount_amount= (s*markedprice)/100;
+
+                                price.add(productObject.getString("price"));
+                                item_id.add(productObject.getString("id"));
+                                item_name.add(productObject.getString("name"));
+                                save_price.add(String.valueOf(discount_amount));
+                                description.add(productObject.getString("description"));
+                                Off_price.add(productObject.getString("discount"));
+                                item_img_url.add(productObject.getString("img"));
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                        Log.e("ReqOK",response);
+
+
+                }
+    }, new Response.ErrorListener() {
+        @Override
+        public void onErrorResponse(VolleyError error) {
+
+            Toast .makeText(getActivity(), error.getMessage(), Toast.LENGTH_SHORT);
 
         }
+    }){
+
+        protected Map<String, String> getParams() {
+            Map<String, String> MyData = new HashMap<String, String>();
+            MyData.put("cat", "11");
+            return MyData;
+        }
+    };
+
+        Volley.newRequestQueue(getActivity()).add(stringRequest);
+
 
 
     }
