@@ -1,20 +1,22 @@
 package tech.iwish.ONhome.cart;
 
-import android.util.ArrayMap;
-import android.util.Log;
-import android.widget.Toast;
-
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class ShopingCart {
+    public static ArrayList<Integer> itemid_a = new ArrayList<>();
+    public static ArrayList<Integer> price_a = new ArrayList<>();
+    public static ArrayList<String> save_price_a = new ArrayList<>();
+    public static ArrayList<String> description_a = new ArrayList<>();
+    public static ArrayList<String> off_price_a = new ArrayList<>();
+    public static ArrayList<String> img_url_a = new ArrayList<>();
 
-    public static ArrayList<Integer> Cart_list = new ArrayList<>();
-
-    public boolean additem(Integer item){
-        Cart_list.add(item);
+    public boolean additem(int itemid, int price, String save_price, String description, String off_price, String img_url){
+        itemid_a.add(itemid);
+        price_a.add(price);
+        save_price_a.add(save_price);
+        description_a.add(description);
+        off_price_a.add(off_price);
+        img_url_a.add(img_url);
         return true;
     }
 

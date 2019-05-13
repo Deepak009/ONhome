@@ -26,15 +26,8 @@ LinearLayoutManager HorizontalLayout ;
         cart_recyclerView.setAdapter(new CartAdaptor());
 
 
-
-
-
-
-
-
-
-
     }
+
     public  boolean onOptionsItemSelected(MenuItem item){
         int id =item.getItemId();
 

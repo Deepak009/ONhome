@@ -16,6 +16,7 @@ import java.util.ArrayList;
 
 import tech.iwish.ONhome.ItemDescription;
 import tech.iwish.ONhome.R;
+import tech.iwish.ONhome.cart.ShopingCart;
 
 public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
 
@@ -31,12 +32,16 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
 
         public MyView(View view) {
             super(view);
+            Off_price = view.findViewById(R.id.textView4);
+            item_img_view = view.findViewById(R.id.imageView3);
+            description = view.findViewById(R.id.textView8);
+            price = view.findViewById(R.id.textView10);
+            Off_price = view.findViewById(R.id.textView11);
 
         }
     }
 
     public CartAdaptor() {
-
 
 
     }
@@ -46,18 +51,23 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
 
         View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_single_item, parent, false);
 
+
         return new MyView(itemView);
     }
 
     @Override
     public void onBindViewHolder(final MyView holder, final int position) {
+            ShopingCart Cart = new ShopingCart();
 
+            holder.price.setText("Rs. "+String.valueOf(Cart.price_a.get(position)));
+            holder.description.setText(String.valueOf(Cart.description_a.get(position)));
 
     }
 
     @Override
     public int getItemCount() {
-        return 10;
+        int count = ShopingCart.itemid_a.size();
+        return count;
     }
 }
 

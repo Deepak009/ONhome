@@ -102,6 +102,13 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
                 Intent intent = new Intent(activity,ItemDescription.class);
 
                 intent.putExtra("item_id",item_id.get(position));
+                intent.putExtra("price",price.get(position));
+                intent.putExtra("save_price",save_price.get(position));
+                intent.putExtra("description",description.get(position));
+                intent.putExtra("off_price",off_price.get(position));
+                intent.putExtra("img_urls",img_urls.get(position));
+
+
                 
                 holder.item_img_view.getContext().startActivity(intent);
                 //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();

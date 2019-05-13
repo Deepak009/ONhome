@@ -73,26 +73,19 @@ public class ItemDescription extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ShopingCart Cart = new ShopingCart();
+
                 int itemid = Integer.parseInt(getIntent().getStringExtra("item_id"));
-                Log.e("ItemID", String.valueOf(itemid));
+                int price = Integer.parseInt(getIntent().getStringExtra("price"));
+                String save_price = getIntent().getStringExtra("save_price");
+                String description = getIntent().getStringExtra("description");
+                String off_price = getIntent().getStringExtra("off_price");
+                String img_url = getIntent().getStringExtra("img_urls");
 
-                if (Cart.additem(itemid)==true) {
+
+                if (Cart.additem(itemid,price,save_price,description,off_price,img_url)==true) {
                     Toast.makeText(ItemDescription.this, "Item Added", Toast.LENGTH_SHORT).show();
-                    HomeActivity.Cartview.setText(String.valueOf(Cart.Cart_list.size()));
+                    HomeActivity.Cartview.setText(String.valueOf(Cart.itemid_a.size()));
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
             }
         });
 
