@@ -21,7 +21,6 @@ import tech.iwish.ONhome.cart.ShopingCart;
 public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
 
 
-
     public class MyView extends RecyclerView.ViewHolder {
         public TextView item_id;
         public TextView price;
@@ -32,12 +31,11 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
 
         public MyView(View view) {
             super(view);
-            Off_price = view.findViewById(R.id.textView4);
+            /*Off_price = view.findViewById(R.id.textView4);
             item_img_view = view.findViewById(R.id.imageView3);
             description = view.findViewById(R.id.textView8);
             price = view.findViewById(R.id.textView10);
-            Off_price = view.findViewById(R.id.textView11);
-
+            Off_price = view.findViewById(R.id.textView11);*/
         }
     }
 
@@ -49,7 +47,7 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
     @Override
     public MyView onCreateViewHolder(ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_single_item, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_item, parent, false);
 
 
         return new MyView(itemView);
@@ -57,16 +55,16 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
 
     @Override
     public void onBindViewHolder(final MyView holder, final int position) {
-            ShopingCart Cart = new ShopingCart();
+            /*ShopingCart Cart = new ShopingCart();
 
             holder.price.setText("Rs. "+String.valueOf(Cart.price_a.get(position)));
-            holder.description.setText(String.valueOf(Cart.description_a.get(position)));
+            holder.description.setText(String.valueOf(Cart.description_a.get(position)));*/
 
     }
 
     @Override
     public int getItemCount() {
-        int count = ShopingCart.itemid_a.size();
+        int count = 10;
         return count;
     }
 }

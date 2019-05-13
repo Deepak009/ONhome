@@ -46,12 +46,15 @@
               app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
           <TextView
+              android:textAlignment="center"
               android:id="@+id/textView17"
-              android:layout_width="wrap_content"
+              android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_marginStart="8dp"
+              android:layout_marginEnd="8dp"
               android:text="Meggi"
               android:textSize="18sp"
+              app:layout_constraintEnd_toEndOf="parent"
               app:layout_constraintStart_toEndOf="@+id/imageView2"
               app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
@@ -60,7 +63,7 @@
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:maxLength="50"
-              android:maxLines="3"
+              android:maxLines="1"
               android:text="So as well as thinking carefully about fuel economy, performance, reliability and everything else, you really should first of all consider the safety of the model you’re considering."
               android:textSize="10dp"
               app:layout_constraintEnd_toEndOf="parent"
@@ -109,21 +112,44 @@
               android:id="@+id/textView22"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:layout_marginEnd="4dp"
+              android:layout_marginTop="8dp"
               android:text="Total Rs. 10000"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent" />
+              android:textSize="15dp"
+              app:layout_constraintStart_toStartOf="@+id/textView20"
+              app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
           <TextView
-              android:background="@drawable/circle"
-              android:padding="5dp"
               android:id="@+id/textView23"
               android:layout_width="wrap_content"
               android:layout_height="wrap_content"
-              android:textColor="@color/white"
+              android:layout_marginEnd="8dp"
+              android:background="@drawable/circle"
+              android:padding="5dp"
               android:text="01"
-              tools:layout_editor_absoluteX="191dp"
-              tools:layout_editor_absoluteY="119dp" />
+              android:textColor="@color/white"
+              app:layout_constraintBottom_toBottomOf="@+id/imageButton"
+              app:layout_constraintEnd_toStartOf="@+id/imageButton"
+              app:layout_constraintTop_toTopOf="@+id/imageButton" />
+
+          <ImageButton
+              android:id="@+id/imageButton"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:layout_marginEnd="8dp"
+              android:background="@drawable/plus"
+              app:layout_constraintBottom_toBottomOf="parent"
+              app:layout_constraintEnd_toEndOf="parent" />
+
+          <ImageButton
+              android:id="@+id/imageButton2"
+              android:layout_width="30dp"
+              android:layout_height="30dp"
+              android:layout_marginEnd="8dp"
+              android:background="@drawable/minus"
+              app:layout_constraintBottom_toBottomOf="@+id/textView23"
+              app:layout_constraintEnd_toStartOf="@+id/textView23"
+              app:layout_constraintTop_toTopOf="@+id/textView23" />
+
       </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
