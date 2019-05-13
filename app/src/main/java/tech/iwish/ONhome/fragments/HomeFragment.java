@@ -110,10 +110,51 @@ public class HomeFragment extends Fragment {
         Off_price = new ArrayList<>();
         item_img_url = new ArrayList<>();
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, getproductlist,
+        ConnectionServer connectionServer = new ConnectionServer();
+        connectionServer.set_url(getproductlist);
+        connectionServer.requestedMethod("POST");
+        //connectionServer.buildParameter("username",username);
+        //connectionServer.buildParameter("password",password);
+        connectionServer.execute(new ConnectionServer.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Log.e("Serverr",output);
+                try {
+                    JSONArray products = new JSONArray(output);
+                    Log.e("Lenth", String.valueOf(products.length()));
+                    for(int i=0; i<products.length(); i++){
+
+                        JSONObject productObject = products.getJSONObject(i);
+
+                        double  dis,discount_amount,markedprice,s;
+                        markedprice= Double.parseDouble(productObject.getString("price"));
+                        dis=Double.parseDouble(productObject.getString("discount"));  // 25 mean 25%
+                        s=100-dis;
+                        discount_amount= (s*markedprice)/100;
+
+                        price.add(productObject.getString("price"));
+                        item_id.add(productObject.getString("id"));
+                        item_name.add(productObject.getString("name"));
+                        save_price.add(String.valueOf(discount_amount));
+                        description.add(productObject.getString("description"));
+                        Off_price.add(productObject.getString("discount"));
+                        item_img_url.add(productObject.getString("img"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+
+
+
+       /* StringRequest stringRequest = new StringRequest(Request.Method.POST, getproductlist,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+                        Log.e("LOCATION",getproductlist);
 
                         try {
                             JSONArray products = new JSONArray(response);
@@ -161,7 +202,7 @@ public class HomeFragment extends Fragment {
     };
 
         Volley.newRequestQueue(getActivity()).add(stringRequest);
-
+*/
 
 
     }

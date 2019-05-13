@@ -46,6 +46,7 @@ public class HomeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
         Cartview = (TextView) findViewById(R.id.cart_count_textview);
         Cart_Bucket = (RelativeLayout) findViewById(R.id.cart);
         Toolbar toolbar = findViewById(R.id.toolbar);

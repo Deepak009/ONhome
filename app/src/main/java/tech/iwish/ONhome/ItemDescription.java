@@ -24,6 +24,8 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+import tech.iwish.ONhome.cart.ShopingCart;
+
 import static tech.iwish.ONhome.helper.Constants.BaseUrl;
 import static tech.iwish.ONhome.helper.Constants.GET_ITEM_DETAIL;
 
@@ -66,20 +68,30 @@ public class ItemDescription extends AppCompatActivity {
 
         GetItemDetail();
 
-
-
-
         addtocart = (TextView) findViewById(R.id.text_action_bottom1);
         addtocart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ShopingCart Cart = new ShopingCart();
+                int itemid = Integer.parseInt(getIntent().getStringExtra("item_id"));
+                Log.e("ItemID", String.valueOf(itemid));
 
-                HomeActivity.Cart_Count.add(1);
-                HomeActivity.Cartview.setText(String.valueOf(HomeActivity.Cart_Count.size()));
+                if (Cart.additem(itemid)==true) {
+                    Toast.makeText(ItemDescription.this, "Item Added", Toast.LENGTH_SHORT).show();
+                    HomeActivity.Cartview.setText(String.valueOf(Cart.Cart_list.size()));
+                }
 
 
-                Log.e("Cart_Size", String.valueOf(HomeActivity.Cart_Count.size()));
-                Toast.makeText(ItemDescription.this,"Item added to cart.",Toast.LENGTH_SHORT).show();
+
+
+
+
+
+
+
+
+
+
 
             }
         });
