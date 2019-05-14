@@ -13,7 +13,8 @@ import tech.iwish.ONhome.adaptors.CartAdaptor;
 
 public class CartActivity extends AppCompatActivity {
 RecyclerView cart_recyclerView;
-LinearLayoutManager HorizontalLayout ;
+LinearLayoutManager HorizontalLayout;
+
 
 
     @Override

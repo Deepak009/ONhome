@@ -1,14 +1,7 @@
 package tech.iwish.ONhome;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.UserManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -20,19 +13,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
 import com.synnapps.carouselview.CarouselView;
-import com.synnapps.carouselview.ImageClickListener;
-import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
 
-import tech.iwish.ONhome.UserManager.User_pref;
+import tech.iwish.ONhome.UserManager.UserSessionManager;
 import tech.iwish.ONhome.fragments.HomeFragment;
 import tech.iwish.fonticons.FontIcon;
 
@@ -49,10 +38,28 @@ public class HomeActivity extends AppCompatActivity
 
     RelativeLayout Cart_Bucket;
 
+    // User Session Manager Class
+    UserSessionManager session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        // Session class instance
+        session = new UserSessionManager(getApplicationContext());
+
+        Toast.makeText(getApplicationContext(),
+                "User Login Status: " + session.isUserLoggedIn(),
+                Toast.LENGTH_LONG).show();
+        // Check user login (this is the important point)
+        // If User is not logged in , This will redirect user to LoginActivity
+        // and finish current activity from activity stack.
+        if(session.checkLogin())
+            finish();
+
+
+
 
         Cartview = (TextView) findViewById(R.id.cart_count_textview);
         Cart_Bucket = (RelativeLayout) findViewById(R.id.cart);
