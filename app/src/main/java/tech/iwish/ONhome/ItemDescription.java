@@ -6,7 +6,9 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +44,7 @@ public class ItemDescription extends AppCompatActivity {
     TextView tv_Off_price;
     TextView tv_item_img_url;
     ImageView imageView;
+    Integer[] country = {1, 2, 3, 4, 5,6,7,8,9,10};
 
 
 
@@ -59,6 +62,14 @@ public class ItemDescription extends AppCompatActivity {
             Log.e("IDee",getIntent().getStringExtra("item_id"));
 
         }
+
+        final Spinner spin = (Spinner) findViewById(R.id.spinner);
+        //Creating the ArrayAdapter instance having the country list
+        ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,country);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //Setting the ArrayAdapter data on the Spinner
+        spin.setAdapter(aa);
+
         imageView = (ImageView) findViewById(R.id.item_image_view);
         tv_item_name = (TextView) findViewById(R.id.item_name_view);
         tv_price = (TextView) findViewById(R.id.item_price_view);
@@ -80,9 +91,12 @@ public class ItemDescription extends AppCompatActivity {
                 String description = getIntent().getStringExtra("description");
                 String off_price = getIntent().getStringExtra("off_price");
                 String img_url = getIntent().getStringExtra("img_urls");
+                int qty = Integer.parseInt(spin.getSelectedItem().toString());
+
+                Log.e("geetQty", String.valueOf(qty));
 
 
-                if (Cart.additem(itemid,price,save_price,description,off_price,img_url)==true) {
+                if (Cart.additem(itemid,price,save_price,description,off_price,img_url,qty)==true) {
                     Toast.makeText(ItemDescription.this, "Item Added", Toast.LENGTH_SHORT).show();
                     HomeActivity.Cartview.setText(String.valueOf(Cart.itemid_a.size()));
                 }

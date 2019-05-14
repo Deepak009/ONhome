@@ -1,5 +1,6 @@
 package tech.iwish.ONhome;
 
+import android.app.Activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,6 +15,7 @@ public class CartActivity extends AppCompatActivity {
 RecyclerView cart_recyclerView;
 LinearLayoutManager HorizontalLayout ;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,7 @@ LinearLayoutManager HorizontalLayout ;
         cart_recyclerView = (RecyclerView) findViewById(R.id.cart_items);
         HorizontalLayout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         cart_recyclerView.setLayoutManager(HorizontalLayout);
-        cart_recyclerView.setAdapter(new CartAdaptor());
+        cart_recyclerView.setAdapter(new CartAdaptor(CartActivity.this));
 
 
     }

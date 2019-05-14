@@ -16,141 +16,135 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-      <android.support.constraint.ConstraintLayout
-          android:padding="5dp"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content">
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
 
-          <ImageView
-              android:id="@+id/imageView2"
-              android:layout_width="150dp"
-              android:layout_height="150dp"
-              android:layout_marginTop="2dp"
-              android:layout_marginBottom="2dp"
-              android:scaleType="fitXY"
-              android:src="@drawable/slide5"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintStart_toStartOf="parent"
-              app:layout_constraintTop_toTopOf="parent"
-              app:layout_constraintVertical_bias="1.0" />
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/slide5"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
 
-          <TextView
-              android:id="@+id/textView16"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:background="@drawable/off"
-              android:paddingRight="10dp"
-              android:text="10% OFF"
-              android:textColor="@color/white"
-              app:layout_constraintStart_toStartOf="@+id/imageView2"
-              app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/off"
+                android:paddingRight="10dp"
+                android:text="10% OFF"
+                android:textColor="@color/white"
+                app:layout_constraintStart_toStartOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-          <TextView
-              android:textAlignment="center"
-              android:id="@+id/textView17"
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="8dp"
-              android:layout_marginEnd="8dp"
-              android:text="Meggi"
-              android:textSize="18sp"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toEndOf="@+id/imageView2"
-              app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Meggi"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toTopOf="@+id/imageView2" />
 
-          <TextView
-              android:id="@+id/textView18"
-              android:layout_width="0dp"
-              android:layout_height="wrap_content"
-              android:maxLength="50"
-              android:maxLines="1"
-              android:text="So as well as thinking carefully about fuel economy, performance, reliability and everything else, you really should first of all consider the safety of the model you’re considering."
-              android:textSize="10dp"
-              app:layout_constraintEnd_toEndOf="parent"
-              app:layout_constraintStart_toStartOf="@+id/textView19"
-              app:layout_constraintTop_toBottomOf="@+id/textView19" />
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:text="So as well as thinking carefully about fuel economy, performance, reliability and everything else, you really should first of all consider the safety of the model you’re considering."
+                android:textSize="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textView19"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
-          <TextView
-              android:id="@+id/textView19"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="5dp"
-              android:text="Description-"
-              android:textSize="12dp"
-              app:layout_constraintStart_toStartOf="@+id/textView17"
-              app:layout_constraintTop_toBottomOf="@+id/textView17" />
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Description-"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
-          <TextView
-              android:id="@+id/textView20"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="8dp"
-              android:text="Rs. 1000/-"
-              app:layout_constraintStart_toStartOf="@+id/textView18"
-              app:layout_constraintTop_toBottomOf="@+id/textView18" />
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Rs. 1000/-"
+                app:layout_constraintStart_toStartOf="@+id/textView18"
+                app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-          <TextView
-              android:id="@+id/textView21"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginStart="24dp"
-              android:text="Rs. 12000/-"
-              app:layout_constraintStart_toEndOf="@+id/textView20"
-              app:layout_constraintTop_toTopOf="@+id/textView20" />
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="Rs. 12000/-"
+                app:layout_constraintStart_toEndOf="@+id/textView20"
+                app:layout_constraintTop_toTopOf="@+id/textView20" />
 
-          <View
-              android:id="@+id/divider5"
-              android:layout_width="80dp"
-              android:layout_height="1dp"
-              android:background="@color/colorAccent"
-              app:layout_constraintBottom_toBottomOf="@+id/textView21"
-              app:layout_constraintEnd_toEndOf="@+id/textView21"
-              app:layout_constraintStart_toStartOf="@+id/textView21"
-              app:layout_constraintTop_toTopOf="@+id/textView21" />
+            <View
+                android:id="@+id/divider5"
+                android:layout_width="80dp"
+                android:layout_height="1dp"
+                android:background="@color/colorAccent"
+                app:layout_constraintBottom_toBottomOf="@+id/textView21"
+                app:layout_constraintEnd_toEndOf="@+id/textView21"
+                app:layout_constraintStart_toStartOf="@+id/textView21"
+                app:layout_constraintTop_toTopOf="@+id/textView21" />
 
-          <TextView
-              android:id="@+id/textView22"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginTop="8dp"
-              android:text="Total Rs. 10000"
-              android:textSize="15dp"
-              app:layout_constraintStart_toStartOf="@+id/textView20"
-              app:layout_constraintTop_toBottomOf="@+id/textView20" />
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Total Rs. 10000"
+                android:textSize="15dp"
+                app:layout_constraintStart_toStartOf="@+id/textView20"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
-          <TextView
-              android:id="@+id/textView23"
-              android:layout_width="wrap_content"
-              android:layout_height="wrap_content"
-              android:layout_marginEnd="8dp"
-              android:background="@drawable/circle"
-              android:padding="5dp"
-              android:text="01"
-              android:textColor="@color/white"
-              app:layout_constraintBottom_toBottomOf="@+id/imageButton"
-              app:layout_constraintEnd_toStartOf="@+id/imageButton"
-              app:layout_constraintTop_toTopOf="@+id/imageButton" />
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Qty"
+                android:textSize="10dp"
+                app:layout_constraintStart_toStartOf="@+id/textView22"
+                app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
-          <ImageButton
-              android:id="@+id/imageButton"
-              android:layout_width="30dp"
-              android:layout_height="30dp"
-              android:layout_marginEnd="8dp"
-              android:background="@drawable/plus"
-              app:layout_constraintBottom_toBottomOf="parent"
-              app:layout_constraintEnd_toEndOf="parent" />
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="10"
+                android:textSize="10dp"
+                app:layout_constraintStart_toEndOf="@+id/textView23"
+                app:layout_constraintTop_toTopOf="@+id/textView23" />
 
-          <ImageButton
-              android:id="@+id/imageButton2"
-              android:layout_width="30dp"
-              android:layout_height="30dp"
-              android:layout_marginEnd="8dp"
-              android:background="@drawable/minus"
-              app:layout_constraintBottom_toBottomOf="@+id/textView23"
-              app:layout_constraintEnd_toStartOf="@+id/textView23"
-              app:layout_constraintTop_toTopOf="@+id/textView23" />
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/delete" />
 
-      </android.support.constraint.ConstraintLayout>
+        </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
 
