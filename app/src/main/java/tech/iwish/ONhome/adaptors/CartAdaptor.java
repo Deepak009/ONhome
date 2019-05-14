@@ -20,6 +20,7 @@ import tech.iwish.ONhome.CartActivity;
 import tech.iwish.ONhome.ItemDescription;
 import tech.iwish.ONhome.R;
 import tech.iwish.ONhome.cart.ShopingCart;
+import tech.iwish.ONhome.helper.Constants;
 
 public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.MyView> {
 Activity activity;
@@ -48,8 +49,7 @@ Activity activity;
                 originalprice = view.findViewById(R.id.textView21);
 
                 delete = view.findViewById(R.id.imageButton);
-                quantity = view.findViewById(R.id.textView23);
-
+                quantity = view.findViewById(R.id.textView24);
 
 
 
@@ -72,12 +72,20 @@ Activity activity;
 
     @Override
     public void onBindViewHolder(final MyView holder, final int position) {
+        holder.off.setText(ShopingCart.off_price_a.get(position)+" % OFF");
+        Picasso.with(activity).load(Constants.BaseUrl+ShopingCart.img_url_a.get(position)).into(holder.item_img_view);
+        //holder.item_img_view.setText();
+        holder.product_name.setText(ShopingCart.NAME.get(position));
+        holder.description.setText(ShopingCart.description_a.get(position));
+        holder.price.setText("Rs. "+String.valueOf(ShopingCart.price_a.get(position)));
+        holder.originalprice.setText("Rs. "+String.valueOf(ShopingCart.price_a.get(position)));
+        holder.quantity.setText(String.valueOf(ShopingCart.QTY.get(position)));
 
     }
 
     @Override
     public int getItemCount() {
-        int count = 10;
+        int count = ShopingCart.NAME.size();
         return count;
     }
 }

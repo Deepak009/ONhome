@@ -12,7 +12,7 @@ public class ShopingCart {
     public static ArrayList<Integer> QTY = new ArrayList<>();
     public static ArrayList<String> NAME = new ArrayList<>();
 
-    public boolean additem(int itemid, int price, String save_price, String description, String off_price, String img_url, int qty){
+    public boolean additem(int itemid, int price, String save_price, String description, String off_price, String img_url, int qty, String product_name){
         itemid_a.add(itemid);
         price_a.add(price);
         save_price_a.add(save_price);
@@ -20,6 +20,7 @@ public class ShopingCart {
         off_price_a.add(off_price);
         img_url_a.add(img_url);
         QTY.add(qty);
+        NAME.add(product_name);
         return true;
     }
 

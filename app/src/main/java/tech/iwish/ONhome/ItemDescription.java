@@ -91,12 +91,14 @@ public class ItemDescription extends AppCompatActivity {
                 String description = getIntent().getStringExtra("description");
                 String off_price = getIntent().getStringExtra("off_price");
                 String img_url = getIntent().getStringExtra("img_urls");
+                String product_name = getIntent().getStringExtra("product_name");
+
                 int qty = Integer.parseInt(spin.getSelectedItem().toString());
 
                 Log.e("geetQty", String.valueOf(qty));
 
 
-                if (Cart.additem(itemid,price,save_price,description,off_price,img_url,qty)==true) {
+                if (Cart.additem(itemid,price,save_price,description,off_price,img_url,qty,product_name)==true) {
                     Toast.makeText(ItemDescription.this, "Item Added", Toast.LENGTH_SHORT).show();
                     HomeActivity.Cartview.setText(String.valueOf(Cart.itemid_a.size()));
                 }

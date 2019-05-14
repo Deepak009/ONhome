@@ -93,12 +93,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:text="Rs. 12000/-"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView20"
                 app:layout_constraintStart_toEndOf="@+id/textView20"
                 app:layout_constraintTop_toTopOf="@+id/textView20" />
 
             <View
                 android:id="@+id/divider5"
-                android:layout_width="80dp"
+                android:layout_width="0dp"
                 android:layout_height="1dp"
                 android:background="@color/colorAccent"
                 app:layout_constraintBottom_toBottomOf="@+id/textView21"

@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment {
 
         BestSelling_Recycler = (RecyclerView)rootview.findViewById(R.id.bestsellingitem);
         BestSelling_Recycler.setLayoutManager(HorizontalLayout);
-        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url));
+        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url,item_name));
 
 
         return rootview;

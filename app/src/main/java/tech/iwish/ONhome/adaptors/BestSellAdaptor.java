@@ -30,6 +30,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
     private ArrayList<String> description;
     private ArrayList<String> off_price;
     private ArrayList<String> img_urls;
+    private ArrayList<String> product_name;
     Activity activity;
 
     public class MyView extends RecyclerView.ViewHolder {
@@ -59,7 +60,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
                            ArrayList<String> price,
                            ArrayList<String> save_price,
                            ArrayList<String> description,
-                           ArrayList<String> off_price, ArrayList<String> item_img_url) {
+                           ArrayList<String> off_price, ArrayList<String> item_img_url, ArrayList<String> item_name) {
         this.activity = activity;
         this.item_id = item_id;
         this.price = price;
@@ -67,6 +68,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
         this.description = description;
         this.off_price = off_price;
         this.img_urls = item_img_url;
+        this.product_name = item_name;
 
 
     }
@@ -89,7 +91,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
         holder.description.setText(description.get(position));
         holder.Off_price.setText(off_price.get(position)+" % OFF");
         holder.description.setText(description.get(position));
-        holder.item_name.setText("Hello");
+        holder.item_name.setText(product_name.get(position));
         Log.e("URLSS",BaseUrl+img_urls.get(position));
         Picasso.with(this.activity)
                 .load(BaseUrl+img_urls.get(position))
@@ -107,6 +109,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
                 intent.putExtra("description",description.get(position));
                 intent.putExtra("off_price",off_price.get(position));
                 intent.putExtra("img_urls",img_urls.get(position));
+                intent.putExtra("product_name",product_name.get(position));
 
 
                 
