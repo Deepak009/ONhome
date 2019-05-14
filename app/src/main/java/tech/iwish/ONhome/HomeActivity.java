@@ -1,8 +1,12 @@
 package tech.iwish.ONhome;
 
+import android.app.Activity;
 import android.app.FragmentTransaction;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.UserManager;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.Gravity;
@@ -28,6 +32,7 @@ import com.synnapps.carouselview.ImageListener;
 
 import java.util.ArrayList;
 
+import tech.iwish.ONhome.UserManager.User_pref;
 import tech.iwish.ONhome.fragments.HomeFragment;
 import tech.iwish.fonticons.FontIcon;
 
@@ -39,9 +44,11 @@ public class HomeActivity extends AppCompatActivity
 
     public static ArrayList<Integer> Cart_Count = new ArrayList<>();
 
+
     static TextView Cartview;
 
     RelativeLayout Cart_Bucket;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
