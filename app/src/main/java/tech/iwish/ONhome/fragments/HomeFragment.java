@@ -137,7 +137,7 @@ public class HomeFragment extends Fragment {
                         save_price.add(String.valueOf(discount_amount));
                         description.add(productObject.getString("description"));
                         Off_price.add(productObject.getString("discount"));
-                        item_img_url.add(productObject.getString("img"));
+                        item_img_url.add(productObject.getString("img_url"));
                     }
                 } catch (JSONException e) {
                     e.printStackTrace();

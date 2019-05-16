@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.synnapps.carouselview.CarouselView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import tech.iwish.ONhome.UserManager.UserSessionManager;
 import tech.iwish.ONhome.fragments.HomeFragment;
@@ -37,27 +38,14 @@ public class HomeActivity extends AppCompatActivity
     static TextView Cartview;
 
     RelativeLayout Cart_Bucket;
-
     // User Session Manager Class
     UserSessionManager session;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-        // Session class instance
-        session = new UserSessionManager(getApplicationContext());
-
-        Toast.makeText(getApplicationContext(),
-                "User Login Status: " + session.isUserLoggedIn(),
-                Toast.LENGTH_LONG).show();
-        // Check user login (this is the important point)
-        // If User is not logged in , This will redirect user to LoginActivity
-        // and finish current activity from activity stack.
-        if(session.checkLogin())
-            finish();
-
 
 
 
@@ -92,6 +80,13 @@ public class HomeActivity extends AppCompatActivity
             }
         });
 
+        session = new UserSessionManager(getApplicationContext());
+        session.checkLogin();
+        HashMap<String, String> user_data =  session.getUserDetails();
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.header_bar_user_name);
+
+        navUsername.setText(user_data.get("email"));
 
         getSupportFragmentManager()
                 .beginTransaction()

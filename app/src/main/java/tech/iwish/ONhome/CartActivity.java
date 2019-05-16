@@ -7,7 +7,11 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import tech.iwish.ONhome.UserManager.UserSessionManager;
 import tech.iwish.ONhome.adaptors.BestSellAdaptor;
 import tech.iwish.ONhome.adaptors.CartAdaptor;
 
@@ -15,8 +19,9 @@ public class CartActivity extends AppCompatActivity {
 RecyclerView cart_recyclerView;
 LinearLayoutManager HorizontalLayout;
 
-
-
+    // User Session Manager Class
+    UserSessionManager session;
+TextView checkout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,27 @@ LinearLayoutManager HorizontalLayout;
         HorizontalLayout = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         cart_recyclerView.setLayoutManager(HorizontalLayout);
         cart_recyclerView.setAdapter(new CartAdaptor(CartActivity.this));
+
+
+        checkout = (TextView) findViewById(R.id.text_action_bottom1);
+
+        checkout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+              // Session class instance
+                    session = new UserSessionManager(getApplicationContext());
+
+                if(session.isUserLoggedIn()==true){
+
+                    Toast.makeText(CartActivity.this, "Hellow My Friend", Toast.LENGTH_SHORT).show();
+                }
+                else if(session.isUserLoggedIn()==false){
+                    Toast.makeText(CartActivity.this, "Go to Login", Toast.LENGTH_SHORT).show();
+                }
+
+
+            }
+        });
 
 
     }

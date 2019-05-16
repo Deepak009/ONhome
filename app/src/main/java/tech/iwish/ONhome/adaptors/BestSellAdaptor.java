@@ -92,6 +92,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
         holder.Off_price.setText(off_price.get(position)+" % OFF");
         holder.description.setText(description.get(position));
         holder.item_name.setText(product_name.get(position));
+
         Log.e("URLSS",BaseUrl+img_urls.get(position));
         Picasso.with(this.activity)
                 .load(BaseUrl+img_urls.get(position))
