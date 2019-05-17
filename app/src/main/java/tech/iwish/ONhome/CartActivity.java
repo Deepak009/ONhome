@@ -1,6 +1,7 @@
 package tech.iwish.ONhome;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -45,6 +46,8 @@ TextView checkout;
                 if(session.isUserLoggedIn()==true){
 
                     Toast.makeText(CartActivity.this, "Hellow My Friend", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(CartActivity.this, OrderDetail.class);
+                    startActivity(intent);
                 }
                 else if(session.isUserLoggedIn()==false){
                     Toast.makeText(CartActivity.this, "Go to Login", Toast.LENGTH_SHORT).show();
@@ -53,7 +56,6 @@ TextView checkout;
 
             }
         });
-
 
     }
 
