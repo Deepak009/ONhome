@@ -23,36 +23,41 @@ public class UserSessionManager {
     int PRIVATE_MODE = 0;
 
     // Sharedpref file name
-    private static final String PREFER_NAME = "AndroidExamplePref";
+    private static final String UserData = "UserData";
 
     // All Shared Preferences Keys
     private static final String IS_USER_LOGIN = "IsUserLoggedIn";
 
     // User name (make variable public to access from outside)
+    public static final String KEY_USER_NAME = "username";
+    // User name (make variable public to access from outside)
     public static final String KEY_NAME = "name";
-
     // Email address (make variable public to access from outside)
     public static final String KEY_EMAIL = "email";
+    // Email address (make variable public to access from outside)
+    public static final String KEY_PASS = "pass";
+    public static final String KEY_USER_ID = "user_id";
 
     // Constructor
     public UserSessionManager(Context context){
         this._context = context;
-        pref = _context.getSharedPreferences(PREFER_NAME, PRIVATE_MODE);
+        pref = _context.getSharedPreferences(UserData, PRIVATE_MODE);
         editor = pref.edit();
     }
 
     //Create login session
-    public void createUserLoginSession(String name, String email){
-        // Storing login value as TRUE
+    public void createUserLoginSession(String id, String username, String name, String email, String pass){
+
         editor.putBoolean(IS_USER_LOGIN, true);
 
-        // Storing name in pref
         editor.putString(KEY_NAME, name);
 
-        // Storing email in pref
         editor.putString(KEY_EMAIL, email);
 
-        // commit changes
+        editor.putString(KEY_PASS, pass);
+
+        editor.putString(KEY_USER_ID, id);
+
         editor.commit();
     }
 
