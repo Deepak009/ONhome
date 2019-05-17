@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OrderDetail">
-
     <ScrollView
+        android:layout_above="@+id/bottombar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -113,6 +113,7 @@
             </android.support.v7.widget.CardView>
 
             <TextView
+                android:id="@+id/textView36"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -123,28 +124,44 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/cardView2" />
 
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/order_items_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView36">
 
-
+            </android.support.v7.widget.RecyclerView>
 
         </android.support.constraint.ConstraintLayout>
+
 
 
 
     </ScrollView>
 
     <android.support.constraint.ConstraintLayout
+        android:id="@+id/bottombar"
+        android:background="@drawable/checkout_container"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true">
 
         <TextView
-android:gravity="center_vertical"
             android:id="@+id/textView32"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="3dp"
+            android:background="@drawable/circle"
+            android:gravity="center_vertical"
+            android:paddingLeft="50dp"
+            android:paddingRight="50dp"
             android:text="Confirm"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -164,14 +181,15 @@ android:gravity="center_vertical"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:gravity="center_vertical"
             android:id="@+id/textView35"
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
+            android:gravity="center_vertical"
             android:text="Rs. 5000"
+            android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/textView34"
             app:layout_constraintTop_toTopOf="parent" />
