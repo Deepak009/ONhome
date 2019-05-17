@@ -8,7 +8,7 @@ public class Constants {
     public static String STARTUP_SCREEN_SF = "startup_screen_sf";
     //public static String URL = "http://192.168.1.202/";
     // public static String URL = "http://192.168.219.2/";
-    public static String URL = "http://192.168.225.35/";
+    public static String URL = "http://192.168.1.5/";
     public static String BaseUrl = URL+"grocery_website/";
     public static String SUBFOLDER = "grocery_website/android_process/";
 
