@@ -28,15 +28,12 @@ public class UserSessionManager {
     // All Shared Preferences Keys
     private static final String IS_USER_LOGIN = "IsUserLoggedIn";
 
-    // User name (make variable public to access from outside)
-    public static final String KEY_USER_NAME = "username";
-    // User name (make variable public to access from outside)
-    public static final String KEY_NAME = "name";
-    // Email address (make variable public to access from outside)
-    public static final String KEY_EMAIL = "email";
-    // Email address (make variable public to access from outside)
-    public static final String KEY_PASS = "pass";
+
     public static final String KEY_USER_ID = "user_id";
+    public static final String KEY_USER_NAME = "username";
+    public static final String KEY_NAME = "name";
+    public static final String KEY_EMAIL = "email";
+    public static final String KEY_PASS = "pass";
 
     // Constructor
     public UserSessionManager(Context context){
@@ -44,21 +41,18 @@ public class UserSessionManager {
         pref = _context.getSharedPreferences(UserData, PRIVATE_MODE);
         editor = pref.edit();
     }
-
     //Create login session
-    public void createUserLoginSession(String id, String username, String name, String email, String pass){
+    public boolean createUserLoginSession(String id, String username, String name, String email, String pass){
 
         editor.putBoolean(IS_USER_LOGIN, true);
 
-        editor.putString(KEY_NAME, name);
-
-        editor.putString(KEY_EMAIL, email);
-
-        editor.putString(KEY_PASS, pass);
-
         editor.putString(KEY_USER_ID, id);
-
+        editor.putString(KEY_USER_NAME, username);
+        editor.putString(KEY_NAME, name);
+        editor.putString(KEY_EMAIL, email);
+        editor.putString(KEY_PASS, pass);
         editor.commit();
+        return true;
     }
 
     /**
@@ -87,8 +81,6 @@ public class UserSessionManager {
         return false;
     }
 
-
-
     /**
      * Get stored session data
      * */
@@ -97,13 +89,12 @@ public class UserSessionManager {
         //Use hashmap to store user credentials
         HashMap<String, String> user = new HashMap<String, String>();
 
-        // user name
+
+        user.put(KEY_USER_ID, pref.getString(KEY_USER_ID, null));
+        user.put(KEY_USER_NAME, pref.getString(KEY_USER_NAME, null));
         user.put(KEY_NAME, pref.getString(KEY_NAME, null));
-
-        // user email id
         user.put(KEY_EMAIL, pref.getString(KEY_EMAIL, null));
-
-        // return user
+        user.put(KEY_PASS, pref.getString(KEY_PASS, null));
         return user;
     }
 
@@ -111,7 +102,6 @@ public class UserSessionManager {
      * Clear session details
      * */
     public void logoutUser(){
-
         // Clearing all user data from Shared Preferences
         editor.clear();
         editor.commit();

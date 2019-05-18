@@ -47,6 +47,8 @@ Button login_btn;
                 String email = username.getText().toString();
                 String pass = password.getText().toString();
 
+
+
                 if(isValidMail(email)){
                     if(isValidPassword(pass)){
                         Toast.makeText(LoginActivity.this, "Hellow", Toast.LENGTH_SHORT).show();
@@ -82,9 +84,10 @@ Button login_btn;
                                         email= productObject.getString("email");
                                         pass= productObject.getString("password");
 
-                                        session.createUserLoginSession(id, username,name, email, pass);
+                                        if(session.createUserLoginSession(id, username,name, email, pass)==true){
+                                            Toast.makeText(LoginActivity.this, "Session Created", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-
 
 
                                 } catch (JSONException e) {

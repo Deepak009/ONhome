@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
@@ -33,7 +33,7 @@
                     android:id="@+id/simpleTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="18dip"
+                    android:padding="10dp"
                     android:text="Grapes"
                     android:textColor="#000"
                     android:textSize="15dp" />
@@ -42,7 +42,7 @@
                     android:id="@+id/quantity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="18dip"
+                    android:padding="10dp"
                     android:text="Qty:1"
                     android:textColor="#000"
                     android:textSize="15dp" />
@@ -51,7 +51,7 @@
                     android:id="@+id/totalprice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="18dip"
+                    android:padding="10dp"
                     android:text="Rs. 1000/-"
                     android:textColor="#000"
                     android:textSize="15dp" />
