@@ -16,6 +16,7 @@ public class Constants {
     //File Naming
     public static String Check = URL+SUBFOLDER+"check_user.php";
     public static String Getslides = URL+SUBFOLDER+"getslides.php";
+    public static String OrderResive = URL+SUBFOLDER+"OrderResive.php";
 
     public static String getproductlist = URL+SUBFOLDER+"product_list.php";
     public static String GET_ITEM_DETAIL = URL+SUBFOLDER+"item_detail.php";
