@@ -8,7 +8,7 @@ public class Constants {
     public static String STARTUP_SCREEN_SF = "startup_screen_sf";
     //public static String URL = "http://192.168.1.202/";
     // public static String URL = "http://192.168.219.2/";
-    public static String URL = "http://192.168.225.35/";
+    public static String URL = "http://192.168.43.109/";
     public static String BaseUrl = URL+"grocery_website/";
     public static String SUBFOLDER = "grocery_website/android_process/";
 
@@ -20,6 +20,10 @@ public class Constants {
 
     public static String getproductlist = URL+SUBFOLDER+"product_list.php";
     public static String GET_ITEM_DETAIL = URL+SUBFOLDER+"item_detail.php";
+    public static String GET_Grocery_itmes = URL+SUBFOLDER+"get_grocery_products.php";
+    public static String GetBeverages_url = URL+SUBFOLDER+"GetBeverages_items.php";
+
+
 
    /* //Connection Server Start Here
     //Log.e("test URl",LOGINCHECK);]

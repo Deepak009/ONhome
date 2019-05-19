@@ -6,7 +6,6 @@
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragments.HomeFragment">
-
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -95,7 +94,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Top Grocery Items"/>
+                        android:text="Grocery"/>
                     <Button
                         android:layout_marginRight="10dp"
                         android:textAllCaps="false"
@@ -108,7 +107,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <include
-                        layout="@layout/cardtopgrocery"
+                        layout="@layout/grocery"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
                 </RelativeLayout>
@@ -141,7 +140,7 @@
                         android:layout_alignParentLeft="true"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Top Categories"/>
+                        android:text="Beverages"/>
                     <Button
                         android:layout_marginRight="10dp"
                         android:textAllCaps="false"
@@ -150,119 +149,13 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"/>
                 </RelativeLayout>
-
-
-            </LinearLayout>
-
-
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Top Categories"/>
-                    <Button
-                        android:layout_marginRight="10dp"
-                        android:textAllCaps="false"
-                        android:text="See all"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Top Categories"/>
-                    <Button
-                        android:layout_marginRight="10dp"
-                        android:textAllCaps="false"
-                        android:text="See all"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"/>
-                </RelativeLayout>
-
-
-            </LinearLayout>
-
-
-        </android.support.v7.widget.CardView>
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.v7.widget.CardView
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-                    <TextView
-                        android:layout_marginLeft="10dp"
-                        android:textSize="18dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Top Categories"/>
-                    <Button
-                        android:layout_marginRight="10dp"
-                        android:textAllCaps="false"
-                        android:text="See all"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"/>
+                    <include
+                        layout="@layout/beverages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
                 </RelativeLayout>
 
 
