@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -41,6 +42,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
         public TextView description;
         public TextView Off_price;
         public ImageView item_img_view;
+        public Button addtocart;
 
         public MyView(View view) {
             super(view);
@@ -52,6 +54,8 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
             item_id = (TextView) view.findViewById(R.id.item_id);
             item_name = (TextView) view.findViewById(R.id.textView14);
             item_img_view = (ImageView) view.findViewById(R.id.imageView3);
+            addtocart = (Button) view.findViewById(R.id.button);
+
         }
     }
 
@@ -112,11 +116,27 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
                 intent.putExtra("img_urls",img_urls.get(position));
                 intent.putExtra("product_name",product_name.get(position));
 
-
                 
                 holder.item_img_view.getContext().startActivity(intent);
                 //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();
 
+            }
+        });
+        holder.addtocart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity,ItemDescription.class);
+
+                intent.putExtra("item_id",item_id.get(position));
+                intent.putExtra("price",price.get(position));
+                intent.putExtra("save_price",save_price.get(position));
+                intent.putExtra("description",description.get(position));
+                intent.putExtra("off_price",off_price.get(position));
+                intent.putExtra("img_urls",img_urls.get(position));
+                intent.putExtra("product_name",product_name.get(position));
+
+                holder.item_img_view.getContext().startActivity(intent);
+                //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();
             }
         });
 

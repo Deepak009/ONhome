@@ -1,7 +1,9 @@
 package tech.iwish.ONhome;
 
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -27,12 +29,13 @@ import static tech.iwish.ONhome.helper.Constants.OrderResive;
 public class ConfirmOrder extends AppCompatActivity {
 Button CashOnDelivery;
     UserSessionManager session;
+    AlertDialog.Builder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_confirm_order);
-
+        builder = new AlertDialog.Builder(this);
         CashOnDelivery = (Button) findViewById(R.id.button7);
         CashOnDelivery.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.O)
@@ -79,7 +82,8 @@ Button CashOnDelivery;
 
                                         String status = productObject.getString("status");
                                         if (status.equals("success")){
-                                            Toast.makeText(ConfirmOrder.this, "Order Recieved", Toast.LENGTH_SHORT).show();
+                                           Intent intent = new Intent(ConfirmOrder.this, Order_Recieved.class);
+                                           startActivity(intent);
                                         }
                                         if (status.equals("failed")){
                                             Toast.makeText(ConfirmOrder.this, "Failed", Toast.LENGTH_SHORT).show();
