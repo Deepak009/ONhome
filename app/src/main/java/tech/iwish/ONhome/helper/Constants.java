@@ -22,7 +22,7 @@ public class Constants {
     public static String GET_ITEM_DETAIL = URL+SUBFOLDER+"item_detail.php";
     public static String GET_Grocery_itmes = URL+SUBFOLDER+"get_grocery_products.php";
     public static String GetBeverages_url = URL+SUBFOLDER+"GetBeverages_items.php";
-
+    public static String GetBiscuitsnecks = URL+SUBFOLDER+"GetBiscuitsnecks.php";
 
 
    /* //Connection Server Start Here
