@@ -43,6 +43,11 @@ import static tech.iwish.ONhome.helper.Constants.Check;
 import static tech.iwish.ONhome.helper.Constants.GET_Grocery_itmes;
 import static tech.iwish.ONhome.helper.Constants.GetBeverages_url;
 import static tech.iwish.ONhome.helper.Constants.GetBiscuitsnecks;
+import static tech.iwish.ONhome.helper.Constants.GetFoodsBreakfast;
+import static tech.iwish.ONhome.helper.Constants.GetHouseholdNeeds_items;
+import static tech.iwish.ONhome.helper.Constants.GetPatanjaliProducts_items;
+import static tech.iwish.ONhome.helper.Constants.GetPersonalcare_items;
+import static tech.iwish.ONhome.helper.Constants.GetSoap;
 import static tech.iwish.ONhome.helper.Constants.getproductlist;
 
 /**
@@ -97,6 +102,13 @@ public class HomeFragment extends Fragment {
         GetGroceryItem(rootview);
         GetBeverages(rootview);
         GetSnackBiscuits(rootview);
+
+        Get_FoodsBreakfast(rootview);
+        Get_HouseholdNeeds_items(rootview);
+        Get_Personalcare_items(rootview);
+        Get_Soap(rootview);
+        Get_PatanjaliProducts_items(rootview);
+
 
         return rootview;
     }
@@ -354,6 +366,324 @@ public class HomeFragment extends Fragment {
         BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url,item_name));
 
     }
+
+    private void Get_FoodsBreakfast(View rootview) {
+        //Array List for single Item Detial Start
+        final ArrayList<String> item_name;
+        final ArrayList<String> item_id;
+        final ArrayList<String> price;
+        final ArrayList<String> save_price;
+        final ArrayList<String> description;
+        final ArrayList<String> Off_price;
+        final ArrayList<String> item_img_url;
+
+        //Array List for single Item Detial End
+        item_name = new ArrayList<>();
+        item_id = new ArrayList<>();
+        price = new ArrayList<>();
+        save_price = new ArrayList<>();
+        description = new ArrayList<>();
+        Off_price = new ArrayList<>();
+        item_img_url = new ArrayList<>();
+
+        ConnectionServer connectionServer = new ConnectionServer();
+        connectionServer.set_url(GetFoodsBreakfast);
+        connectionServer.requestedMethod("POST");
+        //connectionServer.buildParameter("username",username);
+        //connectionServer.buildParameter("password",password);
+        connectionServer.execute(new ConnectionServer.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Log.e("Serverr",output);
+                try {
+                    JSONArray products = new JSONArray(output);
+                    Log.e("Lenth", String.valueOf(products.length()));
+                    for(int i=0; i<products.length(); i++){
+
+                        JSONObject productObject = products.getJSONObject(i);
+
+                        double  dis,discount_amount,markedprice,s;
+                        markedprice= Double.parseDouble(productObject.getString("price"));
+                        dis=Double.parseDouble(productObject.getString("discount"));  // 25 mean 25%
+                        s=100-dis;
+                        discount_amount= (s*markedprice)/100;
+
+                        price.add(productObject.getString("price"));
+                        item_id.add(productObject.getString("id"));
+                        item_name.add(productObject.getString("name"));
+                        save_price.add(String.valueOf(discount_amount));
+                        description.add(productObject.getString("description"));
+                        Off_price.add(productObject.getString("discount"));
+                        item_img_url.add(productObject.getString("img_url"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        BestSelling_Recycler = (RecyclerView)rootview.findViewById(R.id.food_break_fast_items_sellingitem);
+        BestSelling_Recycler.setLayoutManager(HorizontalLayout);
+        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url,item_name));
+
+    }
+    private void Get_HouseholdNeeds_items(View rootview) {
+        //Array List for single Item Detial Start
+        final ArrayList<String> item_name;
+        final ArrayList<String> item_id;
+        final ArrayList<String> price;
+        final ArrayList<String> save_price;
+        final ArrayList<String> description;
+        final ArrayList<String> Off_price;
+        final ArrayList<String> item_img_url;
+
+        //Array List for single Item Detial End
+        item_name = new ArrayList<>();
+        item_id = new ArrayList<>();
+        price = new ArrayList<>();
+        save_price = new ArrayList<>();
+        description = new ArrayList<>();
+        Off_price = new ArrayList<>();
+        item_img_url = new ArrayList<>();
+
+        ConnectionServer connectionServer = new ConnectionServer();
+        connectionServer.set_url(GetHouseholdNeeds_items);
+        connectionServer.requestedMethod("POST");
+        //connectionServer.buildParameter("username",username);
+        //connectionServer.buildParameter("password",password);
+        connectionServer.execute(new ConnectionServer.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Log.e("Serverr",output);
+                try {
+                    JSONArray products = new JSONArray(output);
+                    Log.e("Lenth", String.valueOf(products.length()));
+                    for(int i=0; i<products.length(); i++){
+
+                        JSONObject productObject = products.getJSONObject(i);
+
+                        double  dis,discount_amount,markedprice,s;
+                        markedprice= Double.parseDouble(productObject.getString("price"));
+                        dis=Double.parseDouble(productObject.getString("discount"));  // 25 mean 25%
+                        s=100-dis;
+                        discount_amount= (s*markedprice)/100;
+
+                        price.add(productObject.getString("price"));
+                        item_id.add(productObject.getString("id"));
+                        item_name.add(productObject.getString("name"));
+                        save_price.add(String.valueOf(discount_amount));
+                        description.add(productObject.getString("description"));
+                        Off_price.add(productObject.getString("discount"));
+                        item_img_url.add(productObject.getString("img_url"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        BestSelling_Recycler = (RecyclerView)rootview.findViewById(R.id.house_holds_need_items_sellingitem);
+        BestSelling_Recycler.setLayoutManager(HorizontalLayout);
+        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url,item_name));
+
+    }
+    private void Get_Personalcare_items(View rootview) {
+        //Array List for single Item Detial Start
+        final ArrayList<String> item_name;
+        final ArrayList<String> item_id;
+        final ArrayList<String> price;
+        final ArrayList<String> save_price;
+        final ArrayList<String> description;
+        final ArrayList<String> Off_price;
+        final ArrayList<String> item_img_url;
+
+        //Array List for single Item Detial End
+        item_name = new ArrayList<>();
+        item_id = new ArrayList<>();
+        price = new ArrayList<>();
+        save_price = new ArrayList<>();
+        description = new ArrayList<>();
+        Off_price = new ArrayList<>();
+        item_img_url = new ArrayList<>();
+
+        ConnectionServer connectionServer = new ConnectionServer();
+        connectionServer.set_url(GetPersonalcare_items);
+        connectionServer.requestedMethod("POST");
+        //connectionServer.buildParameter("username",username);
+        //connectionServer.buildParameter("password",password);
+        connectionServer.execute(new ConnectionServer.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Log.e("Serverr",output);
+                try {
+                    JSONArray products = new JSONArray(output);
+                    Log.e("Lenth", String.valueOf(products.length()));
+                    for(int i=0; i<products.length(); i++){
+
+                        JSONObject productObject = products.getJSONObject(i);
+
+                        double  dis,discount_amount,markedprice,s;
+                        markedprice= Double.parseDouble(productObject.getString("price"));
+                        dis=Double.parseDouble(productObject.getString("discount"));  // 25 mean 25%
+                        s=100-dis;
+                        discount_amount= (s*markedprice)/100;
+
+                        price.add(productObject.getString("price"));
+                        item_id.add(productObject.getString("id"));
+                        item_name.add(productObject.getString("name"));
+                        save_price.add(String.valueOf(discount_amount));
+                        description.add(productObject.getString("description"));
+                        Off_price.add(productObject.getString("discount"));
+                        item_img_url.add(productObject.getString("img_url"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        BestSelling_Recycler = (RecyclerView)rootview.findViewById(R.id.personal_care_sellingitem);
+        BestSelling_Recycler.setLayoutManager(HorizontalLayout);
+        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url,item_name));
+
+    }
+    private void Get_Soap(View rootview) {
+        //Array List for single Item Detial Start
+        final ArrayList<String> item_name;
+        final ArrayList<String> item_id;
+        final ArrayList<String> price;
+        final ArrayList<String> save_price;
+        final ArrayList<String> description;
+        final ArrayList<String> Off_price;
+        final ArrayList<String> item_img_url;
+
+        //Array List for single Item Detial End
+        item_name = new ArrayList<>();
+        item_id = new ArrayList<>();
+        price = new ArrayList<>();
+        save_price = new ArrayList<>();
+        description = new ArrayList<>();
+        Off_price = new ArrayList<>();
+        item_img_url = new ArrayList<>();
+
+        ConnectionServer connectionServer = new ConnectionServer();
+        connectionServer.set_url(GetSoap);
+        connectionServer.requestedMethod("POST");
+        //connectionServer.buildParameter("username",username);
+        //connectionServer.buildParameter("password",password);
+        connectionServer.execute(new ConnectionServer.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Log.e("Serverr",output);
+                try {
+                    JSONArray products = new JSONArray(output);
+                    Log.e("Lenth", String.valueOf(products.length()));
+                    for(int i=0; i<products.length(); i++){
+
+                        JSONObject productObject = products.getJSONObject(i);
+
+                        double  dis,discount_amount,markedprice,s;
+                        markedprice= Double.parseDouble(productObject.getString("price"));
+                        dis=Double.parseDouble(productObject.getString("discount"));  // 25 mean 25%
+                        s=100-dis;
+                        discount_amount= (s*markedprice)/100;
+
+                        price.add(productObject.getString("price"));
+                        item_id.add(productObject.getString("id"));
+                        item_name.add(productObject.getString("name"));
+                        save_price.add(String.valueOf(discount_amount));
+                        description.add(productObject.getString("description"));
+                        Off_price.add(productObject.getString("discount"));
+                        item_img_url.add(productObject.getString("img_url"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        BestSelling_Recycler = (RecyclerView)rootview.findViewById(R.id.shoaps_items_sellingitem);
+        BestSelling_Recycler.setLayoutManager(HorizontalLayout);
+        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url,item_name));
+
+    }
+    private void Get_PatanjaliProducts_items(View rootview) {
+        //Array List for single Item Detial Start
+        final ArrayList<String> item_name;
+        final ArrayList<String> item_id;
+        final ArrayList<String> price;
+        final ArrayList<String> save_price;
+        final ArrayList<String> description;
+        final ArrayList<String> Off_price;
+        final ArrayList<String> item_img_url;
+
+        //Array List for single Item Detial End
+        item_name = new ArrayList<>();
+        item_id = new ArrayList<>();
+        price = new ArrayList<>();
+        save_price = new ArrayList<>();
+        description = new ArrayList<>();
+        Off_price = new ArrayList<>();
+        item_img_url = new ArrayList<>();
+
+        ConnectionServer connectionServer = new ConnectionServer();
+        connectionServer.set_url(GetPatanjaliProducts_items);
+        connectionServer.requestedMethod("POST");
+        //connectionServer.buildParameter("username",username);
+        //connectionServer.buildParameter("password",password);
+        connectionServer.execute(new ConnectionServer.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Log.e("Serverr",output);
+                try {
+                    JSONArray products = new JSONArray(output);
+                    Log.e("Lenth", String.valueOf(products.length()));
+                    for(int i=0; i<products.length(); i++){
+
+                        JSONObject productObject = products.getJSONObject(i);
+
+                        double  dis,discount_amount,markedprice,s;
+                        markedprice= Double.parseDouble(productObject.getString("price"));
+                        dis=Double.parseDouble(productObject.getString("discount"));  // 25 mean 25%
+                        s=100-dis;
+                        discount_amount= (s*markedprice)/100;
+
+                        price.add(productObject.getString("price"));
+                        item_id.add(productObject.getString("id"));
+                        item_name.add(productObject.getString("name"));
+                        save_price.add(String.valueOf(discount_amount));
+                        description.add(productObject.getString("description"));
+                        Off_price.add(productObject.getString("discount"));
+                        item_img_url.add(productObject.getString("img_url"));
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+        RecyclerViewLayoutManager = new LinearLayoutManager(getActivity());
+        HorizontalLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+        BestSelling_Recycler = (RecyclerView)rootview.findViewById(R.id.patanjali_products_sellingitem);
+        BestSelling_Recycler.setLayoutManager(HorizontalLayout);
+        BestSelling_Recycler.setAdapter(new BestSellAdaptor(getActivity(),item_id,price,save_price,description,Off_price,item_img_url,item_name));
+
+    }
+
+
 
     ImageListener imageListener = new ImageListener() {
         @Override

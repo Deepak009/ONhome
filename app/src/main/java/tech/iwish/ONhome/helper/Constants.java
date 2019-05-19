@@ -25,6 +25,13 @@ public class Constants {
     public static String GetBiscuitsnecks = URL+SUBFOLDER+"GetBiscuitsnecks.php";
 
 
+    public static String GetFoodsBreakfast = URL+SUBFOLDER+"GetFoodsBreakfast.php";
+    public static String GetHouseholdNeeds_items = URL+SUBFOLDER+"GetHouseholdNeeds_items.php";
+    public static String GetPersonalcare_items = URL+SUBFOLDER+"GetPersonalcare_items.php";
+    public static String GetSoap = URL+SUBFOLDER+"GetSoap.php";
+    public static String GetPatanjaliProducts_items = URL+SUBFOLDER+"GetPatanjaliProducts_items.php";
+
+
    /* //Connection Server Start Here
     //Log.e("test URl",LOGINCHECK);]
     ConnectionServer connectionServer = new ConnectionServer();
