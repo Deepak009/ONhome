@@ -15,7 +15,22 @@
         <item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Search Items" />
+            android:title="Search Products" />
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/MyOrders"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="My Orders" />
+        <item
+            android:id="@+id/MyAccount"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="My Account" />
+        <item
+            android:id="@+id/sign"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Sign In" />
     </group>
 
     <item android:title="Communicate">

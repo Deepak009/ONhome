@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:ems="9"
-                android:maxLines="4"
+                android:maxLines="2"
                 android:text="4aggi Masala Noodles pack of 4"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="@+id/imageView3"
