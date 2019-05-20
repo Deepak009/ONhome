@@ -88,6 +88,8 @@ public class HomeActivity extends AppCompatActivity
 
         navUsername.setText(user_data.get("email"));
 
+
+
         getSupportFragmentManager()
                 .beginTransaction()
                 .replace(R.id.main_container, new HomeFragment())
@@ -133,12 +135,19 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
         if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.Categories) {
+            Toast.makeText(this, "Hello111", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.MyOrders) {
+            if(session.isUserLoggedIn()==true){
+                Toast.makeText(HomeActivity.this, "Hellow My Friend", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, Myorders.class);
+                startActivity(intent);
+            }
+            else if(session.isUserLoggedIn()==false){
+                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+                startActivity(intent);            }
 
         } else if (id == R.id.nav_share) {
 
