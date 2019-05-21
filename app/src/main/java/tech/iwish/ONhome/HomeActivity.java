@@ -14,6 +14,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import tech.iwish.ONhome.UserManager.UserSessionManager;
+import tech.iwish.ONhome.fragments.CategoryFragment;
 import tech.iwish.ONhome.fragments.HomeFragment;
 import tech.iwish.fonticons.FontIcon;
 
@@ -41,14 +43,12 @@ public class HomeActivity extends AppCompatActivity
     RelativeLayout Cart_Bucket;
     // User Session Manager Class
     UserSessionManager session;
-
+    Button category_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-
-
 
         Cartview = (TextView) findViewById(R.id.cart_count_textview);
         Cart_Bucket = (RelativeLayout) findViewById(R.id.cart);
@@ -70,6 +70,17 @@ public class HomeActivity extends AppCompatActivity
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this,CartActivity.class);
                 startActivity(intent);
+            }
+        });
+        category_btn = (Button) findViewById(R.id.category);
+        category_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(HomeActivity.this, "Hwllo", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.main_container, new CategoryFragment())
+                        .commit();
             }
         });
 
