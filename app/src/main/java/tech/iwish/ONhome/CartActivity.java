@@ -44,13 +44,12 @@ TextView checkout;
                     session = new UserSessionManager(getApplicationContext());
 
                 if(session.isUserLoggedIn()==true){
-
-                    Toast.makeText(CartActivity.this, "Hellow My Friend", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(CartActivity.this, OrderDetail.class);
                     startActivity(intent);
                 }
                 else if(session.isUserLoggedIn()==false){
-                    Toast.makeText(CartActivity.this, "Go to Login", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(CartActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
 
 

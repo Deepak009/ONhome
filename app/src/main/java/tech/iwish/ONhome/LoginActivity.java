@@ -26,7 +26,7 @@ import static tech.iwish.ONhome.helper.Constants.Check;
 public class LoginActivity extends AppCompatActivity {
 EditText username;
 EditText password;
-Button login_btn;
+Button login_btn, signup_btn;
     // User Session Manager Class
     UserSessionManager session;
     @Override
@@ -40,10 +40,20 @@ Button login_btn;
 
 
 
+        signup_btn = (Button) findViewById(R.id.button14);
+        signup_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
 
         login_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 String email = username.getText().toString();
                 String pass = password.getText().toString();
 
@@ -113,8 +123,7 @@ Button login_btn;
                         Intent i = new Intent(getApplicationContext(), HomeActivity.class);
                         startActivity(i);
                         finish();
-*/
-
+                        */
             }
 
         });

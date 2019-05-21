@@ -2,6 +2,7 @@ package tech.iwish.ONhome;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.internal.NavigationMenuView;
 import android.view.Gravity;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -81,13 +82,11 @@ public class HomeActivity extends AppCompatActivity
         });
 
         session = new UserSessionManager(getApplicationContext());
-        session.checkLogin();
+        //session.checkLogin();
         HashMap<String, String> user_data =  session.getUserDetails();
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = (TextView) headerView.findViewById(R.id.header_bar_user_name);
-
         navUsername.setText(user_data.get("email"));
-
 
 
         getSupportFragmentManager()
@@ -149,7 +148,20 @@ public class HomeActivity extends AppCompatActivity
                 Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
                 startActivity(intent);            }
 
-        } else if (id == R.id.nav_share) {
+        }
+        else if(id ==R.id.MyAccount){
+            if(session.isUserLoggedIn()==true){
+                Toast.makeText(HomeActivity.this, "Hellow Mr.", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, MyAccount.class);
+                startActivity(intent);
+            }
+            else if(session.isUserLoggedIn()==false){
+                Intent intent = new Intent(HomeActivity.this, LoginActivity.class);
+                startActivity(intent);
+            }
+
+        }
+        else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 
