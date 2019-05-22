@@ -1,0 +1,6 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:state_pressed="true" android:drawable="@drawable/cartbtn2" />
+    <item android:state_pressed="true" android:drawable="@drawable/cartbtn2"/>
+    <item android:state_checked="true" android:drawable="@drawable/buybtn2"/>
+    <item android:drawable="@drawable/buybtn1"/>
+</selector>

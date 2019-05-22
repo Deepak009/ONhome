@@ -6,4 +6,6 @@
     <color name="barcolor">#18990c</color>
     <color name="white">#fff</color>
     <color name="gray">#808080</color>
+    <color name="lightgray">#FFFCFC</color>
+    <color name="cardback">#DCDCE9</color>
 </resources>

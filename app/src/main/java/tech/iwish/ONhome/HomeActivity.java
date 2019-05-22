@@ -145,10 +145,18 @@ public class HomeActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_container, new HomeFragment())
+                    .commit();
         } else if (id == R.id.Categories) {
-            Toast.makeText(this, "Hello111", Toast.LENGTH_SHORT).show();
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.main_container, new CategoryFragment())
+                    .commit();
+
         } else if (id == R.id.MyOrders) {
             if(session.isUserLoggedIn()==true){
                 Toast.makeText(HomeActivity.this, "Hellow My Friend", Toast.LENGTH_SHORT).show();
