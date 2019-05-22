@@ -159,7 +159,11 @@ public class HomeActivity extends AppCompatActivity
                     .beginTransaction()
                     .replace(R.id.main_container, new HomeFragment())
                     .commit();
-        } else if (id == R.id.Categories) {
+        } else if (id == R.id.searchpro) {
+            Intent intent = new Intent(HomeActivity.this,ProductSearchActivity.class);
+            startActivity(intent);
+
+        }else if (id == R.id.Categories) {
             getSupportFragmentManager()
                     .beginTransaction()
                     .replace(R.id.main_container, new CategoryFragment())
