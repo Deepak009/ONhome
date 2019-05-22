@@ -90,24 +90,24 @@
                 android:layout_width="0dp"
                 android:layout_height="25dp"
                 android:layout_marginTop="8dp"
+                android:background="@drawable/addtocartback"
                 android:text="Add to Cart"
                 android:textAllCaps="false"
                 android:textSize="10dp"
-                android:background="@drawable/addtocartback"
-                app:layout_constraintStart_toStartOf="@+id/imageView3"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
             <Button
-                android:background="@drawable/buyback"
                 android:id="@+id/button3"
                 android:layout_width="0dp"
                 android:layout_height="25dp"
                 android:layout_marginStart="8dp"
+                android:background="@drawable/buyback"
                 android:text="Buy Now"
                 android:textAllCaps="false"
                 android:textSize="10dp"
                 app:layout_constraintBottom_toBottomOf="@+id/button"
-                app:layout_constraintEnd_toEndOf="@+id/imageView3"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/button"
                 app:layout_constraintTop_toTopOf="@+id/button" />
 

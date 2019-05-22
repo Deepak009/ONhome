@@ -154,10 +154,10 @@ public class HomeFragment extends Fragment {
                         s=100-dis;
                         discount_amount= (s*markedprice)/100;
 
-                        price.add(productObject.getString("price"));
+                        price.add("Rs."+productObject.getString("price"));
                         item_id.add(productObject.getString("id"));
                         item_name.add(productObject.getString("name"));
-                        save_price.add(String.valueOf(discount_amount));
+                        save_price.add("Rs."+String.valueOf(discount_amount));
                         description.add(productObject.getString("description"));
                         Off_price.add(productObject.getString("discount"));
                         item_img_url.add(productObject.getString("img_url"));
