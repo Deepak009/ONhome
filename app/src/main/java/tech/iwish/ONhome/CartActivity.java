@@ -18,7 +18,7 @@ import tech.iwish.ONhome.adaptors.CartAdaptor;
 
 public class CartActivity extends AppCompatActivity {
 RecyclerView cart_recyclerView;
-LinearLayoutManager HorizontalLayout;
+    LinearLayoutManager HorizontalLayout;
 
     // User Session Manager Class
     UserSessionManager session;

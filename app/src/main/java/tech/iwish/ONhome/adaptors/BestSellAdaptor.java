@@ -65,7 +65,7 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
                            ArrayList<String> save_price,
                            ArrayList<String> description,
                            ArrayList<String> off_price, ArrayList<String> item_img_url, ArrayList<String> item_name) {
-        this.activity = activity;
+            this.activity = activity;
         this.item_id = item_id;
         this.price = price;
         this.save_price = save_price;
@@ -89,56 +89,56 @@ public class BestSellAdaptor extends RecyclerView.Adapter<BestSellAdaptor.MyView
     public void onBindViewHolder(final MyView holder, final int position) {
 
         // Log.e("name", String.valueOf(horizontalProductScrollModelList.get(position)));
-        holder.item_id.setText(item_id.get(position));
-        holder.price.setText(price.get(position));
-        holder.save_price.setText(save_price.get(position));
-        holder.description.setText(description.get(position));
-        holder.Off_price.setText(off_price.get(position)+" % OFF");
-        holder.description.setText(description.get(position));
-        holder.item_name.setText(product_name.get(position));
+            holder.item_id.setText(item_id.get(position));
+            holder.price.setText(price.get(position));
+            holder.save_price.setText(save_price.get(position));
+            holder.description.setText(description.get(position));
+            holder.Off_price.setText(off_price.get(position)+" % OFF");
+            holder.description.setText(description.get(position));
+            holder.item_name.setText(product_name.get(position));
 
-        Log.e("URLSS",BaseUrl+img_urls.get(position));
-        Picasso.with(this.activity)
-                .load(BaseUrl+img_urls.get(position))
-                .into(holder.item_img_view);
+            Log.e("URLSS",BaseUrl+img_urls.get(position));
+            Picasso.with(this.activity)
+                    .load(BaseUrl+img_urls.get(position))
+                    .into(holder.item_img_view);
 
-        holder.item_img_view.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+            holder.item_img_view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-                Intent intent = new Intent(activity,ItemDescription.class);
+                    Intent intent = new Intent(activity,ItemDescription.class);
 
-                intent.putExtra("item_id",item_id.get(position));
-                intent.putExtra("price",price.get(position));
-                intent.putExtra("save_price",save_price.get(position));
-                intent.putExtra("description",description.get(position));
-                intent.putExtra("off_price",off_price.get(position));
-                intent.putExtra("img_urls",img_urls.get(position));
-                intent.putExtra("product_name",product_name.get(position));
+                    intent.putExtra("item_id",item_id.get(position));
+                    intent.putExtra("price",price.get(position));
+                    intent.putExtra("save_price",save_price.get(position));
+                    intent.putExtra("description",description.get(position));
+                    intent.putExtra("off_price",off_price.get(position));
+                    intent.putExtra("img_urls",img_urls.get(position));
+                    intent.putExtra("product_name",product_name.get(position));
 
-                
-                holder.item_img_view.getContext().startActivity(intent);
-                //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();
 
-            }
-        });
-        holder.addtocart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(activity,ItemDescription.class);
+                    holder.item_img_view.getContext().startActivity(intent);
+                    //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();
 
-                intent.putExtra("item_id",item_id.get(position));
-                intent.putExtra("price",price.get(position));
-                intent.putExtra("save_price",save_price.get(position));
-                intent.putExtra("description",description.get(position));
-                intent.putExtra("off_price",off_price.get(position));
-                intent.putExtra("img_urls",img_urls.get(position));
-                intent.putExtra("product_name",product_name.get(position));
+                }
+            });
+            holder.addtocart.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(activity,ItemDescription.class);
 
-                holder.item_img_view.getContext().startActivity(intent);
-                //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();
-            }
-        });
+                    intent.putExtra("item_id",item_id.get(position));
+                    intent.putExtra("price",price.get(position));
+                    intent.putExtra("save_price",save_price.get(position));
+                    intent.putExtra("description",description.get(position));
+                    intent.putExtra("off_price",off_price.get(position));
+                    intent.putExtra("img_urls",img_urls.get(position));
+                    intent.putExtra("product_name",product_name.get(position));
+
+                    holder.item_img_view.getContext().startActivity(intent);
+                    //Toast.makeText(activity, "Item"+position, Toast.LENGTH_SHORT).show();
+                }
+            });
 
         //holder.item_img.setImageResource(R.drawable.slide4);
         //Log.e("TestURL", Constants.BaseUrl + category_url.get(position));
