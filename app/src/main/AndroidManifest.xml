@@ -20,6 +20,8 @@
         <activity android:name=".OrderDetail" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".CartActivity" />
+        <activity android:name=".ProductSearchActivity" />
+
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"

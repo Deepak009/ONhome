@@ -101,7 +101,7 @@
                 android:textAllCaps="false" />
 
             <Button
-
+                    android:id="@+id/searchbar"
                 android:layout_marginLeft="10dp"
                 android:background="@color/white"
                 android:layout_width="match_parent"

@@ -43,7 +43,7 @@ public class HomeActivity extends AppCompatActivity
     RelativeLayout Cart_Bucket;
     // User Session Manager Class
     UserSessionManager session;
-    Button category_btn;
+    Button category_btn,search_btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +81,14 @@ public class HomeActivity extends AppCompatActivity
                         .beginTransaction()
                         .replace(R.id.main_container, new CategoryFragment())
                         .commit();
+            }
+        });
+        search_btn = (Button) findViewById(R.id.searchbar);
+        search_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,ProductSearchActivity.class);
+                startActivity(intent);
             }
         });
 
