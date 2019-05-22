@@ -22,6 +22,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.azoft.carousellayoutmanager.CarouselLayoutManager;
+import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
+import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.synnapps.carouselview.CarouselView;
 import com.synnapps.carouselview.ImageClickListener;
 import com.synnapps.carouselview.ImageListener;
@@ -38,6 +41,7 @@ import tech.iwish.ONhome.Connection.ConnectionServer;
 import tech.iwish.ONhome.HomeActivity;
 import tech.iwish.ONhome.R;
 import tech.iwish.ONhome.adaptors.BestSellAdaptor;
+import tech.iwish.ONhome.adaptors.CetegoryAdaptor;
 
 import static tech.iwish.ONhome.helper.Constants.Check;
 import static tech.iwish.ONhome.helper.Constants.GET_Grocery_itmes;
@@ -55,7 +59,6 @@ import static tech.iwish.ONhome.helper.Constants.getproductlist;
  */
 public class HomeFragment extends Fragment {
     int[] sampleImages = {R.drawable.slide4, R.drawable.slide4, R.drawable.slide4, R.drawable.slide4, R.drawable.slide4};
-    CarouselView carouselView;
 
     LinearLayoutManager HorizontalLayout ;
 
@@ -85,17 +88,19 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View rootview = inflater.inflate(R.layout.fragment_home, container, false);
-        carouselView = (CarouselView) rootview.findViewById(R.id.carouselView);
-        carouselView.setPageCount(sampleImages.length);
-        carouselView.setImageListener(imageListener);
+
+        // vertical and cycle layout
+        final CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
+        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+
+        final RecyclerView recyclerView = rootview.findViewById(R.id.slidervar);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setAdapter(new CetegoryAdaptor(getActivity()));
+        recyclerView.addOnScrollListener(new CenterScrollListener());
 
 
-        carouselView.setImageClickListener(new ImageClickListener() {
-            @Override
-            public void onClick(int position) {
-                Toast.makeText(getActivity(), "Clicked item: "+ position, Toast.LENGTH_SHORT).show();
-            }
-        });
+
 
 
         Getitemdetail(rootview);
