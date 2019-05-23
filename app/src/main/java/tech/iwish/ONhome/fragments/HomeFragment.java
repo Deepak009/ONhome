@@ -53,6 +53,7 @@ import static tech.iwish.ONhome.helper.Constants.GetHouseholdNeeds_items;
 import static tech.iwish.ONhome.helper.Constants.GetPatanjaliProducts_items;
 import static tech.iwish.ONhome.helper.Constants.GetPersonalcare_items;
 import static tech.iwish.ONhome.helper.Constants.GetSoap;
+import static tech.iwish.ONhome.helper.Constants.Getslides;
 import static tech.iwish.ONhome.helper.Constants.getproductlist;
 
 /**
@@ -76,7 +77,8 @@ public class HomeFragment extends Fragment {
     RecyclerView Foods_Breakfast_Recycler;
 
 
-
+    ArrayList<String> Slider_images;
+    ArrayList<String> Slider_image_id;
 
 
     public HomeFragment() {
@@ -97,9 +99,12 @@ public class HomeFragment extends Fragment {
         final RecyclerView recyclerView = rootview.findViewById(R.id.slidervar);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new SliderAdaptor(getActivity()));
-        recyclerView.addOnScrollListener(new CenterScrollListener());
+        GetSliderimages();
 
+
+        recyclerView.setAdapter(new SliderAdaptor(getActivity(),Slider_images,Slider_image_id));
+
+        recyclerView.addOnScrollListener(new CenterScrollListener());
 
 
 
@@ -118,7 +123,38 @@ public class HomeFragment extends Fragment {
 
         return rootview;
     }
+    private void GetSliderimages(){
+        Slider_images = new ArrayList<>();
+        Slider_image_id = new ArrayList<>();
+        ConnectionServer connectionServer = new ConnectionServer();
+        connectionServer.set_url(Getslides);
+        connectionServer.requestedMethod("POST");
+        //connectionServer.buildParameter("username",username);
+        //connectionServer.buildParameter("password",password);
+        connectionServer.execute(new ConnectionServer.AsyncResponse() {
+            @Override
+            public void processFinish(String output) {
+                Log.e("Serverr",output);
+                try {
+                    JSONArray products = new JSONArray(output);
+                    Log.e("Lenth", String.valueOf(products.length()));
+                    for(int i=0; i<products.length(); i++){
 
+                        JSONObject productObject = products.getJSONObject(i);
+
+
+                        Slider_images.add(productObject.getString("img_url"));
+                        Slider_image_id.add(productObject.getString("id"));
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        });
+
+    }
     private void Getitemdetail(View rootview) {
         //Array List for single Item Detial Start
         final ArrayList<String> item_name;

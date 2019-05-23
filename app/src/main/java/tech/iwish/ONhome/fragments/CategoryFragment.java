@@ -54,7 +54,7 @@ public class CategoryFragment extends Fragment {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         recyclerView.setLayoutManager(gridLayoutManager); // set LayoutManager to RecyclerView
         //recyclerView.setAdapter(new CetegoryAdaptor(getActivity(),cat_id,cat_name,imgs));
-        recyclerView.setAdapter(new SliderAdaptor(getActivity()));
+        //recyclerView.setAdapter(new SliderAdaptor(getActivity()));
         return rootview;
     }
     private void GetCetegories(View rootview) {
