@@ -3,6 +3,7 @@ package tech.iwish.ONhome;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -16,6 +17,7 @@ UserSessionManager session;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order__recieved);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         order_recieved = (Button) findViewById(R.id.button9);
         order_recieved.setOnClickListener(new View.OnClickListener() {
@@ -32,5 +34,15 @@ UserSessionManager session;
                 }
             }
         });
+    }
+    public  boolean onOptionsItemSelected(MenuItem item){
+        int id =item.getItemId();
+
+        if(id == android.R.id.home){
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

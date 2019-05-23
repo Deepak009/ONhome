@@ -11,16 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SignUpActivity"></activity>
-        <activity android:name=".MyAccount" />
-        <activity android:name=".Myorders" />
-        <activity android:name=".Order_Recieved" />
-        <activity android:name=".OrderConfirm" />
-        <activity android:name=".ConfirmOrder" />
-        <activity android:name=".OrderDetail" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".CartActivity" />
-        <activity android:name=".ProductSearchActivity" />
+        <activity android:name=".SignUpActivity" android:label="Sign Up"></activity>
+        <activity android:name=".MyAccount" android:label="My Account" />
+        <activity android:name=".Myorders" android:label="My Orders" />
+        <activity android:name=".Order_Recieved" android:label="Order Receive" />
+        <activity android:name=".OrderConfirm" android:label="Order Confirm" />
+        <activity android:name=".ConfirmOrder" android:label="Confirm Order" />
+        <activity android:name=".OrderDetail" android:label="Order Detail" />
+        <activity android:name=".LoginActivity" android:label="Login" />
+        <activity android:name=".CartActivity" android:label="My Cart" />
+        <activity android:name=".ProductSearchActivity" android:label="Search All Products" />
 
         <activity
             android:name=".HomeActivity"

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MenuItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,6 +51,7 @@ RecyclerView Myorder_recyclerView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myorders);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         getmyorders();
         HorizontalLayout = new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -130,5 +132,15 @@ RecyclerView Myorder_recyclerView;
         });
 
 
+    }
+    public  boolean onOptionsItemSelected(MenuItem item){
+        int id =item.getItemId();
+
+        if(id == android.R.id.home){
+            finish();
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

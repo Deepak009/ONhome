@@ -42,6 +42,7 @@ import tech.iwish.ONhome.HomeActivity;
 import tech.iwish.ONhome.R;
 import tech.iwish.ONhome.adaptors.BestSellAdaptor;
 import tech.iwish.ONhome.adaptors.CetegoryAdaptor;
+import tech.iwish.ONhome.adaptors.SliderAdaptor;
 
 import static tech.iwish.ONhome.helper.Constants.Check;
 import static tech.iwish.ONhome.helper.Constants.GET_Grocery_itmes;
@@ -96,7 +97,7 @@ public class HomeFragment extends Fragment {
         final RecyclerView recyclerView = rootview.findViewById(R.id.slidervar);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setAdapter(new CetegoryAdaptor(getActivity()));
+        recyclerView.setAdapter(new SliderAdaptor(getActivity()));
         recyclerView.addOnScrollListener(new CenterScrollListener());
 
 
